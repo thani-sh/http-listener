@@ -1,14 +1,11 @@
 var http = require('http')
-var connect = require('connect')
 
-var app = connect()
-    app.use(connect.json())
-    app.use(function (req, res) {
-      console.log('\n', new Date())
-      console.log(' - body: ', JSON.stringify(req.body))
-      res.writeHead(200)
-      res.end('response')
-    });
+var server = http.createServer(function (req, res) {
+  console.log(`\n${new Date().toLocaleTimeString()}`)
+  console.log(`${req.method} ${req.url}`)
+  console.log(`HEADERS: ${JSON.stringify(req.headers, null, 2)}`);
+  res.writeHead(200, {'Content-Type': 'text/plain'})
+  res.end('Hello World\n')
+})
 
-http.createServer(app)
-    .listen(process.env.PORT || 8000)
+server.listen(process.env.PORT)

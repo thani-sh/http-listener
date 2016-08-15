@@ -1,8 +1,10 @@
 {
   "name": "http-listener",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Listens for http requests and logs them",
-  "main": "index.js",
+  "bin": {
+    "http-listener": "index.js"
+  },
   "scripts": {
     "test": "mocha"
   },
@@ -18,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/mnmtanish/http-listener/issues"
   },
-  "homepage": "https://github.com/mnmtanish/http-listener",
-  "dependencies": {
-    "connect": "^3.2.0"
-  }
+  "homepage": "https://github.com/mnmtanish/http-listener"
 }
